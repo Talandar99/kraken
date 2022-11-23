@@ -1,18 +1,23 @@
 defmodule Kraken do
-  @moduledoc """
-  Documentation for `Kraken`.
-  """
+  def main([]), do: passedNoArgs()
+  def main(arguments), do: passedArguments(arguments)
 
-  @doc """
-  Hello world.
+  defp passedNoArgs() do
+    IO.puts("""
 
-  ## Examples
+    ----🐙 KRAKEN 🐙----
+          
+       System helper 
+        from abyss
 
-      iex> Kraken.hello()
-      :world
+    --------------------
+        
+    """)
+  end
 
-  """
-  def hello do
-    :world
+  defp passedArguments(args) do
+    if hd(args) == "lurk" do
+      Lurk.paruLurking(args)
+    end
   end
 end
