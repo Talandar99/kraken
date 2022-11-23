@@ -1,6 +1,5 @@
-# Kraken
-
-**TODO: Add description**
+# Kraken 🐙
+## Linux System helper from abyss
 
 ## Installation
 
