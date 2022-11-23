@@ -1,5 +1,5 @@
 # Kraken 🐙
-## Linux System helper from abyss
+## System helper from abyss
 
 ## Installation
 
