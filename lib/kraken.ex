@@ -17,8 +17,7 @@ defmodule Kraken do
      call  - git stage . + commit
      awake - git configuration
     -------------------------------
-     dive into abyss 
-           - system setup:
+     dive  - system setup:
              # nvim + dependencies
              # git + config
              # generate ssh key
@@ -28,8 +27,24 @@ defmodule Kraken do
   end
 
   defp passed_arguments(args) do
-    if hd(args) == "lurk" do
-      Lurk.lurk(args)
+    cond do
+      hd(args) == "lurk" ->
+        Lurk.lurk(tl(args))
+
+      hd(args) == "hunt" ->
+        IO.puts("hunt")
+
+      hd(args) == "call" ->
+        IO.puts("call")
+
+      hd(args) == "awake" ->
+        IO.puts("awake")
+
+      hd(args) == "dive" ->
+        IO.puts("dive")
+
+      hd(args) ->
+        IO.puts("I refuse")
     end
   end
 end
