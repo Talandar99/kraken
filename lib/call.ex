@@ -7,6 +7,7 @@ defmodule Call do
       [args_head | []] ->
         System.cmd("git", ["stage", "."])
         System.cmd("git", ["commit", "-m", args_head])
+        System.cmd("git", "push")
 
       [_ | _] ->
         IO.puts("I refuse")
