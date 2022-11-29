@@ -27,24 +27,25 @@ defmodule Kraken do
   end
 
   defp passed_arguments(args) do
-    cond do
-      hd(args) == "lurk" ->
+    case args do
+      ["lurk" | _] ->
         Lurk.lurk(tl(args))
 
-      hd(args) == "hunt" ->
+      ["hunt" | _] ->
         IO.puts("hunt")
 
-      hd(args) == "call" ->
-        IO.puts("call")
+      ["call" | _] ->
+        Call.call(tl(args))
 
-      hd(args) == "awake" ->
+      ["awake" | _] ->
         IO.puts("awake")
 
-      hd(args) == "dive" ->
+      ["dive" | _] ->
         IO.puts("dive")
 
-      hd(args) ->
+      [_ | _] ->
         IO.puts("I refuse")
     end
   end
+
 end
