@@ -1,7 +1,7 @@
 defmodule Git do
-  def scp([args_head | _]) do
+  def scp(args) do
     System.cmd("git", ["stage", "."])
-    System.cmd("git", ["commit", "-m", args_head])
+    System.cmd("git", ["commit", "-m", args])
     System.cmd("git", ["push"])
   end
 
