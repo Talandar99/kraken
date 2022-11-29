@@ -1,17 +1,34 @@
 defmodule Call do
   def call(args) do
+    validate(args)
+    |> execute()
+  end
+
+  def validate(args) do
     case args do
       [] ->
-        IO.puts("I refuse")
+        {:error, ["i don't have message"]}
 
-      [args_head | []] ->
-        System.cmd("git", ["stage", "."])
-        System.cmd("git", ["commit", "-m", args_head])
-        System.cmd("git", ["push"])
+      [_ | []] ->
+        {:ok, args}
 
       [_ | _] ->
-        IO.puts("I refuse")
+        {:error, ["use \"\" to type mutliple words"]}
     end
+  end
+
+  def execute({atom, message}) do
+    case atom do
+      :ok -> hd(message) |> git_scp()
+      :error -> {atom, message}
+    end
+  end
+
+  def git_scp(args_head) do
+    System.cmd("git", ["stage", "."])
+    System.cmd("git", ["commit", "-m", args_head])
+    System.cmd("git", ["push"])
+    {:ok, "pushed"}
   end
 end
 
