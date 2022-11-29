@@ -47,5 +47,4 @@ defmodule Kraken do
         IO.puts("I refuse")
     end
   end
-
 end

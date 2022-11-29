@@ -1,7 +1,6 @@
 defmodule Call do
   def call(args) do
-    validate(args)
-    |> execute()
+    validate(args) |> execute()
   end
 
   def validate(args) do
@@ -28,7 +27,6 @@ defmodule Call do
     System.cmd("git", ["stage", "."])
     System.cmd("git", ["commit", "-m", args_head])
     System.cmd("git", ["push"])
-    {:ok, "pushed"}
   end
 end
 
