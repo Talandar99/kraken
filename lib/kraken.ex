@@ -14,13 +14,11 @@ defmodule Kraken do
      lurk  - search for package
      hunt  - search and install 
              package
-     call  - git stage . + commit
-     awake - git configuration
+     call  - git stage all,commit
+             and push
     -------------------------------
-     dive  - system setup:
-             # nvim + dependencies
-             # git + config
-             # generate ssh key
+     awake - system setup:
+             # git config
     -------------------------------
 
     """)
@@ -39,9 +37,7 @@ defmodule Kraken do
 
       ["awake" | _] ->
         IO.puts("awake")
-
-      ["dive" | _] ->
-        IO.puts("dive")
+        IO.gets("") |> IO.puts()
 
       [_ | _] ->
         IO.puts("I refuse")
