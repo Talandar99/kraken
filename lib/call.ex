@@ -12,7 +12,7 @@ defmodule Call do
         {:ok, args}
 
       [_ | _] ->
-        {:error, ["use \"\" to type mutliple words"]}
+        {:error, ["use \"\""]}
     end
   end
 
