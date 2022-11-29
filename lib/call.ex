@@ -16,17 +16,11 @@ defmodule Call do
     end
   end
 
-  def execute({atom, message}) do
-    case atom do
-      :ok -> hd(message) |> git_scp()
-      :error -> {atom, message}
+  def execute({result, message}) do
+    case result do
+      :ok -> hd(message) |> Git.scp()
+      :error -> {result, message}
     end
-  end
-
-  def git_scp(args_head) do
-    System.cmd("git", ["stage", "."])
-    System.cmd("git", ["commit", "-m", args_head])
-    System.cmd("git", ["push"])
   end
 end
 
