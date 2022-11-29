@@ -4,9 +4,14 @@ defmodule Call do
       [] ->
         IO.puts("I refuse")
 
-      args ->
+      [args_head | []] ->
         System.cmd("git", ["stage", "."])
-        System.cmd("git", ["commit" | ["-m" | args]])
+        System.cmd("git", ["commit", "-m", args_head])
+
+      [_ | _] ->
+        IO.puts("I refuse")
     end
   end
 end
+
+# comment 
