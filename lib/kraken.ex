@@ -36,13 +36,13 @@ defmodule Kraken do
   defp passed_arguments([args_head | args_tail]) do
     case args_head do
       "lurk" ->
-        Lurk.lurk(args_tail)
+        Commands.Lurk.lurk(args_tail)
 
       "hunt" ->
         IO.puts("hunt")
 
       "call" ->
-        Call.call(args_tail)
+        Commands.Call.call(args_tail)
 
       "awake" ->
         IO.puts("awake")

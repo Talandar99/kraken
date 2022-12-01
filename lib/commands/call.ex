@@ -1,4 +1,4 @@
-defmodule Call do
+defmodule Commands.Call do
   def call(args) do
     validate(args) |> execute()
   end
@@ -18,7 +18,7 @@ defmodule Call do
 
   def execute({result, message}) do
     case result do
-      :ok -> hd(message) |> Git.scp()
+      :ok -> hd(message) |> IoOperations.SystemCommands.Git.scp()
       :error -> {result, message}
     end
   end

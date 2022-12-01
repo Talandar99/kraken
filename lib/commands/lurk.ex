@@ -1,4 +1,4 @@
-defmodule Lurk do
+defmodule Commands.Lurk do
   def lurk(args) do
     IO.puts("Kraken is lurking for #{tl(args)}\n")
     lurking(args, "pacman")

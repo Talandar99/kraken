@@ -1,4 +1,4 @@
-defmodule Git do
+defmodule IoOperations.SystemCommands.Git do
   def scp(args) do
     System.cmd("git", ["stage", "."])
     System.cmd("git", ["commit", "-m", args])
