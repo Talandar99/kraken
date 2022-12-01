@@ -1,20 +1,19 @@
-# Kraken 🐙
-## System helper from abyss
+# Kraken 🐙 - System helper from abyss
 
-## Installation
+## About
+kraken is cli system helper designed to automate
+common actions 
+and system setup 
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `kraken` to your list of dependencies in `mix.exs`:
+## REQUIREMENTS
+- Arch or Debian based operating system
 
-```elixir
-def deps do
-  [
-    {:kraken, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/kraken>.
-
+## How to run? 
+- just type ``` ./kraken ``` 
+	
+	
+## How to use?
+If  you want to check command list just run ``` ./kraken ```
+<br>Use subcommands to order kraken to do something 
+<br>for example search for neofetch in packagemanager 
+<br>  ``` ./kraken lurk neofetch ```
