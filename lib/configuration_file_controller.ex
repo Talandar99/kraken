@@ -7,20 +7,15 @@ defmodule ConfigurationFileControler do
 
   def setup_configuration() do
     get_path() |> File.mkdir_p()
-    # (get_path() <> "config.toml") |> File.write(args)
-  end
-
-  defp get_path() do
-    get_username() |> concat_path_with_username()
-  end
-
-  defp get_username() do
-    {username, _} = System.cmd("whoami", [])
-    String.replace(username, "\n", "")
+    (get_path() <> "kraken.conf") |> File.write(write_conf())
   end
 
   defp concat_path_with_username(username) do
     "/home/" <> username <> "/.config/kraken/"
+  end
+
+  defp get_path() do
+    IoOperations.ShellCommands.get_username() |> concat_path_with_username()
   end
 
   def read_file(filepath) do
@@ -32,7 +27,7 @@ defmodule ConfigurationFileControler do
     Enum.filter(args, fn x -> !String.contains?(x, "#") end)
   end
 
-  def write_conf_file() do
+  def write_conf() do
     "#kraken configuration file\n" <>
       "awaken=true\n" <>
       "package_managers=" <> get_package_managers()
@@ -41,16 +36,7 @@ defmodule ConfigurationFileControler do
   def get_package_managers() do
     l = ["paru", "pacman", "nala", "apt"]
 
-    Enum.filter(l, fn x -> is_tool_installed(x) end)
+    Enum.filter(l, fn x -> IoOperations.ShellCommands.does_tool_exist(x) end)
     |> Enum.join(",")
-  end
-
-  def is_tool_installed(tool_name) do
-    {response, _} = System.cmd("which", [tool_name])
-
-    case response do
-      "" -> false
-      _ -> true
-    end
   end
 end
