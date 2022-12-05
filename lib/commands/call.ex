@@ -4,7 +4,7 @@ defmodule Commands.Call do
   def call(args) do
     import ResultMonad
 
-    bind(args, &validate_input/1)
+    validate_input(args)
     |> bind(&scp/1)
   end
 

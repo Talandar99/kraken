@@ -34,7 +34,7 @@ defmodule Kraken do
         Commands.Lurk.lurk(args_tail)
 
       "call" ->
-        Commands.Call.call({:ok,args_tail})
+        Commands.Call.call(args_tail)
 
       _ ->
         IO.puts("I refuse")
