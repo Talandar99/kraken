@@ -1,4 +1,5 @@
 defmodule ConfigurationFileControler do
+
   def load_configuration() do
     (get_path() <> "kraken.conf")
     |> read_file()

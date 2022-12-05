@@ -21,13 +21,8 @@ defmodule Kraken do
        
              🐙----------------------------🐙
                lurk  - search for package
-               hunt  - search and install 
-                       package
                call  - git stage all,commit
                        and push
-             🐙----------------------------🐙
-               awake - system setup:
-                       # git config
              🐙----------------------------🐙
 
     """)
@@ -38,15 +33,8 @@ defmodule Kraken do
       "lurk" ->
         Commands.Lurk.lurk(args_tail)
 
-      "hunt" ->
-        IO.puts("hunt")
-
       "call" ->
         Commands.Call.call(args_tail)
-
-      "awake" ->
-        IO.puts("awake")
-        IO.gets("") |> IO.puts()
 
       _ ->
         IO.puts("I refuse")

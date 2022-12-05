@@ -1,8 +1,10 @@
 defmodule Commands.Call do
   import IoOperations.SystemCommands.Git
+  import ResultMonad
 
   def call(args) do
-    validate(args) |> execute()
+    bind({:ok, args}, &validate/1)
+    |> bind(&scp/1)
   end
 
   def validate(args) do
@@ -15,13 +17,6 @@ defmodule Commands.Call do
 
       [_ | _] ->
         {:error, ["use \"\""]}
-    end
-  end
-
-  def execute({result, message}) do
-    case result do
-      :ok -> hd(message) |> scp()
-      :error -> {result, message}
     end
   end
 end
