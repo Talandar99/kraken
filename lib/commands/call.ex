@@ -4,6 +4,7 @@ defmodule Commands.Call do
 
   def call(args) do
     bind({:ok, args}, &validate/1)
+    |> bind(&hd/1)
     |> bind(&scp/1)
   end
 
