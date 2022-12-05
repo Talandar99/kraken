@@ -1,19 +1,20 @@
 defmodule Commands.Call do
   import IoOperations.SystemCommands.Git
-  import ResultMonad
 
   def call(args) do
-    bind({:ok, args}, &validate/1)
-    |> bind(&hd/1)
+    import ResultMonad
+
+    bind(args, &validate_input/1)
     |> bind(&scp/1)
+    |> bind(&IO.puts/1)
   end
 
-  def validate(args) do
+  def validate_input(args) do
     case args do
       [] ->
         {:error, ["i don't have message"]}
 
-      [_ | []] ->
+      [_] ->
         {:ok, args}
 
       [_ | _] ->
