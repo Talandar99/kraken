@@ -3,8 +3,9 @@ defmodule Commands.Call do
 
   def call(args) do
     import ResultMonad
-    {_, value} = bind(args, &validate_input/1)
-    scp(value)
+
+    bind(args, &validate_input/1)
+    |> bind(&scp/1)
   end
 
   def validate_input(args) do
