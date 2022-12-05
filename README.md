@@ -17,3 +17,4 @@ If  you want to check command list just run ``` ./kraken ```
 <br>Use subcommands to order kraken to do something 
 <br>for example search for neofetch in packagemanager 
 <br>  ``` ./kraken lurk neofetch ```
+

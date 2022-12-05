@@ -1,4 +1,4 @@
-defmodule IoOperations.ShellCommands do
+defmodule IoOperations.SystemCommands do
   def get_username do
     {username, _} = System.cmd("whoami", [])
     String.replace(username, "\n", "")
@@ -13,4 +13,17 @@ defmodule IoOperations.ShellCommands do
     end
   end
 
+  def confirm(message) do
+    input =
+      IO.gets(message <> "\ny/n\n")
+      |> String.downcase()
+      |> String.replace(" ", "")
+      |> String.replace("\n", "")
+
+    case input do
+      "y" -> true
+      "n" -> false
+      _ -> confirm(message)
+    end
+  end
 end
