@@ -11,4 +11,8 @@ defmodule ResultMonad do
         {:error, "unknown result"}
     end
   end
+
+  def return(args) do
+    {:ok, args}
+  end
 end
