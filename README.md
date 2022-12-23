@@ -4,9 +4,8 @@
 kraken is cli system helper designed to automate
 common actions 
 and system setup 
+- TODO - turn into package manager
 
-## REQUIREMENTS
-- Arch or Debian based operating system
 
 ## How to run? 
 - just type ``` ./kraken ``` 
